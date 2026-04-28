@@ -3,6 +3,10 @@ FROM ckan/ckan-base:2.11
 # Install any extensions needed by your CKAN instance
 # See Dockerfile.dev for more details and examples
 
+# Install custom Satu Data Konawe theme
+COPY --chown=ckan-sys:ckan-sys ckanext-satudata ${APP_DIR}/ckanext-satudata
+RUN pip install -e ${APP_DIR}/ckanext-satudata
+
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
 
