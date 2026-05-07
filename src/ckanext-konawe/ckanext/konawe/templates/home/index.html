@@ -1,0 +1,95 @@
+{% ckan_extends %}
+
+{% block content %}
+<div class="konawe-hero">
+  <div class="konawe-hero-container">
+    <div class="konawe-hero-image-frame">
+      <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Konawe Landscape">
+      <div class="konawe-hero-text-overlay">
+        <h1 class="konawe-title">Satu Data Kabupaten Konawe</h1>
+        <p class="konawe-subtitle">Portal Data Terbuka Resmi Pemerintah Kabupaten Konawe</p>
+        
+        <div class="konawe-search-box">
+          <form class="module-content search-form" method="get" action="{% url_for 'dataset.search' %}">
+            <div class="search-input-group">
+              <input type="text" class="search-input" name="q" value="{{ c.q }}" autocomplete="off" placeholder="Cari data, publikasi, atau organisasi...">
+              <button type="submit" class="search-button">Cari</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="konawe-categories container">
+  <div class="section-header">
+    <h2>Eksplor Data Berdasarkan Kategori</h2>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4 col-sm-6">
+      <a href="/dataset?groups=pendidikan" class="konawe-card">
+        <div class="konawe-card-icon"><i class="fa fa-graduation-cap"></i></div>
+        <div class="konawe-card-content">
+          <h3 class="konawe-card-title">Pendidikan</h3>
+          <div class="konawe-card-stats">118 DATASET</div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="/dataset?groups=kesehatan" class="konawe-card">
+        <div class="konawe-card-icon"><i class="fa fa-hospital-o"></i></div>
+        <div class="konawe-card-content">
+          <h3 class="konawe-card-title">Kesehatan</h3>
+          <div class="konawe-card-stats">237 DATASET</div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="/dataset?groups=ekonomi" class="konawe-card">
+        <div class="konawe-card-icon"><i class="fa fa-line-chart"></i></div>
+        <div class="konawe-card-content">
+          <h3 class="konawe-card-title">Ekonomi</h3>
+          <div class="konawe-card-stats">203 DATASET</div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="/dataset?groups=infrastruktur" class="konawe-card">
+        <div class="konawe-card-icon"><i class="fa fa-building"></i></div>
+        <div class="konawe-card-content">
+          <h3 class="konawe-card-title">Infrastruktur</h3>
+          <div class="konawe-card-stats">136 DATASET</div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="/dataset?groups=kependudukan" class="konawe-card">
+        <div class="konawe-card-icon"><i class="fa fa-users"></i></div>
+        <div class="konawe-card-content">
+          <h3 class="konawe-card-title">Demografi</h3>
+          <div class="konawe-card-stats">245 DATASET</div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="/dataset?groups=pariwisata" class="konawe-card">
+        <div class="konawe-card-icon"><i class="fa fa-plane"></i></div>
+        <div class="konawe-card-content">
+          <h3 class="konawe-card-title">Pariwisata</h3>
+          <div class="konawe-card-stats">129 DATASET</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block primary_content %}
+  {# We hide the default CKAN primary content by leaving this empty #}
+{% endblock %}
+{% block secondary_content %}
+  {# We hide the default CKAN secondary content by leaving this empty #}
+{% endblock %}
