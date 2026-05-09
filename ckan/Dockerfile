@@ -1,7 +1,24 @@
 FROM --platform=linux/amd64 ckan/ckan-base:2.11
 
-# Install any extensions needed by your CKAN instance
-# See Dockerfile.dev for more details and examples
+# Install system dependencies for ckanext-spatial and git for cloning extensions
+USER root
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    git \
+    libgeos-dev \
+    libgdal-dev \
+    libxml2-dev \
+    libxslt1-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install CKAN Extensions
+RUN pip3 install --no-cache-dir \
+    git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages \
+    git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial \
+    ckanext-scheming \
+    ckanext-geoview \
+    -r https://raw.githubusercontent.com/ckan/ckanext-spatial/master/requirements.txt
 
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
