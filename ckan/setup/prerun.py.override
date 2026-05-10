@@ -168,10 +168,13 @@ def create_sysadmin():
         # Check if user exists
         command = ["ckan", "-c", ckan_ini, "user", "show", name]
 
-        out = subprocess.check_output(command)
-        if b"User:None" not in re.sub(b"\s", b"", out):
-            print("[prerun] Sysadmin user exists, skipping creation")
-            return
+        try:
+            out = subprocess.check_output(command, stderr=subprocess.STDOUT)
+            if b"User:None" not in re.sub(b"\s", b"", out):
+                print("[prerun] Sysadmin user exists, skipping creation")
+                return
+        except subprocess.CalledProcessError as e:
+            print("[prerun] Sysadmin user not found, proceeding with creation...")
 
         # Create user
         command = [
