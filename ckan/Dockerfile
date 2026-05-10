@@ -28,8 +28,8 @@ COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
 COPY --chown=ckan-sys:ckan-sys patches ${APP_DIR}/patches
 
 # Copy custom startup overrides to replace base image startup scripts
-COPY --chown=ckan:ckan setup/prerun.py.override ${APP_DIR}/prerun.py
-COPY --chown=ckan:ckan setup/start_ckan.sh.override ${APP_DIR}/start_ckan.sh
+COPY --chown=ckan:ckan-sys setup/prerun.py.override ${APP_DIR}/prerun.py
+COPY --chown=ckan:ckan-sys setup/start_ckan.sh.override ${APP_DIR}/start_ckan.sh
 RUN chmod +x ${APP_DIR}/start_ckan.sh
 
 USER ckan

@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: ckanext-konawe
+Version: 0.1
+Summary: Satu Data Konawe Theme
+License: AGPL
+Dynamic: license
+Dynamic: summary

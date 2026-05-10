@@ -1,0 +1,11 @@
+setup.py
+ckanext/__init__.py
+ckanext/konawe/__init__.py
+ckanext/konawe/plugin.py
+ckanext_konawe.egg-info/PKG-INFO
+ckanext_konawe.egg-info/SOURCES.txt
+ckanext_konawe.egg-info/dependency_links.txt
+ckanext_konawe.egg-info/entry_points.txt
+ckanext_konawe.egg-info/namespace_packages.txt
+ckanext_konawe.egg-info/not-zip-safe
+ckanext_konawe.egg-info/top_level.txt

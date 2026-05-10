@@ -59,6 +59,8 @@ services:
       - dbnet
     image: ckan/ckan-base-datapusher:${DATAPUSHER_VERSION}
     restart: unless-stopped
+    environment:
+      - UWSGI_LOCK_ENGINE=ipcsem
     healthcheck:
       test: ["CMD", "wget", "-qO", "/dev/null", "http://localhost:8800"]
       interval: 60s
